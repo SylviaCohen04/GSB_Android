@@ -1,0 +1,2 @@
+rootProject.name = "PPE_GSB"
+include ':app'
