@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_alignLeft="@+id/textView4"
-        android:text="Date: "
+        android:text="Date de frais:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
         android:layout_alignLeft="@+id/textView5"
-        android:text="Date saisie: "
+        android:text="Date de saisie: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
@@ -67,9 +67,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView1"
         android:layout_alignBottom="@+id/textView1"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginBottom="8dp"
         android:layout_toRightOf="@+id/textView3"
         android:text="TextView" />
-
 
     <TextView
         android:id="@+id/libelle"
@@ -98,20 +99,18 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
         android:layout_alignLeft="@+id/quantite"
-        android:layout_marginLeft="-2dp"
-        android:layout_marginBottom="-74dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginBottom="-68dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_below="@+id/montant"
-        android:layout_alignLeft="@+id/quantite"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="-1dp"
-        android:layout_marginBottom="-92dp"
+        android:layout_above="@+id/textView5"
+        android:layout_alignLeft="@+id/montant"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="-20dp"
         android:text="TextView" />
 
     <TextView
@@ -128,8 +127,10 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        android:layout_alignRight="@+id/libelle"/>
+        android:layout_alignRight="@+id/libelle"
+        android:layout_marginRight="-38dp"
+        android:onClick="DeleteOnClick"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
 
 
 </RelativeLayout>

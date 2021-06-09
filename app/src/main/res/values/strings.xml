@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PPE_GSB</string>
+    <string-array name="TypeForfait">
+        <item>   </item>
+        <item>Forfait Etape</item>
+        <item>Forfait Km</item>
+        <item>Forfait Hotel</item>
+        <item>Forfait Restaurant </item>
+    </string-array>
 </resources>

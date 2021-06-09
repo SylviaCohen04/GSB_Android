@@ -1,5 +1,6 @@
 package com.example.ppe_gsb;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,10 +27,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), FraisAuForfait.class);
             startActivity(intent);
         }
-/*
-*
-*
-* *  if(view.getId() == R.id.btnFHF){
+
+        if (view.getId() == R.id.btnFHF) {
             Intent intent = new Intent(getApplicationContext(), FraisHorsForfait.class);
             startActivity(intent);
         }
@@ -38,19 +37,20 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), SyntheseDuMois.class);
             startActivity(intent);
         }
+    }
 
-        if (view.getId() == R.id.btnEnvoiDD) {
-            Intent intent = new Intent(getApplicationContext(), EnvoiDesDonnees.class);
-            startActivity(intent);
-        }
-
-        if (view.getId() == R.id.btnParametres) {
-            Intent intent = new Intent(getApplicationContext(), Parametres.class);
-            startActivity(intent);
-        }
- */
-
-
+    /**
+     * affiche message d'erreur et desactive le bouton "ajouter"
+     *
+     * @param titre
+     * @param message
+     */
+    public void afficherMessage(String titre, String message) {
+        AlertDialog.Builder Builder = new AlertDialog.Builder(this);
+        Builder.setCancelable(true);
+        Builder.setTitle(titre);
+        Builder.setMessage(message);
+        Builder.show();
     }
 
 }

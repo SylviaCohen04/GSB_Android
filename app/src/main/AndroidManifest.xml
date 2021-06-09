@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PPE_GSB">
-        <activity android:name=".SyntheseDuMois"></activity>
+        <activity android:name=".SyntheseDuMois" />
         <activity android:name=".FraisHorsForfait" />
         <activity android:name=".FraisAuForfait" />
         <activity android:name=".MainActivity">

@@ -24,6 +24,10 @@ public class FraisHorsForfait extends MainActivity {
     int mm = dateActuelle.get(Calendar.MONTH);
     int jj = dateActuelle.get(Calendar.DAY_OF_MONTH);
 
+
+    /**
+     * @param savedInstanceState est appelée au lancement de l'activité (l'equivalent du constructeur)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,25 +45,22 @@ public class FraisHorsForfait extends MainActivity {
     public void save_DATAHF(View view) {
 
         if (Libelle.getText().toString().trim().length() == 0) { // si rien dans txtQTE
-            Toast.makeText(this, "ERREUR, aucun libellé saisi", Toast.LENGTH_LONG).show();
-            //afficherMessage("ERREUR", "aucun libellé saisi");
-            //return;
+            //Toast.makeText(this, "ERREUR, aucun libellé saisi", Toast.LENGTH_LONG).show();
+            afficherMessage("ERREUR", "aucun libellé saisi");
+
         } else if (Montant.getText().toString().trim().length() == 0) {//c juste?
-            //afficherMessage("ERREUR", "aucun montant saisi");
-            Toast.makeText(this, "ERREUR, aucun montant saisi", Toast.LENGTH_LONG).show();
-            // return;
+            afficherMessage("ERREUR", "aucun montant saisi");
+
         } else if (Date.getText().toString().trim().length() == 0) {
-            //afficherMessage("ERREUR", "aucune date sélectionnée");
-            Toast.makeText(this, "ERREUR, aucune date sélectionnée", Toast.LENGTH_LONG).show();
-            //return;
+            afficherMessage("ERREUR", "aucune date sélectionnée");
+
         } else {
             String Libelle1 = Libelle.getText().toString();
             Double Montant1 = Double.parseDouble(Montant.getText().toString());
             String Date1 = Date.getText().toString();
-            String DateSaisie1 = Date.getText().toString();
-            //pr type forfait, la valeur du champ "Type Frais sera "Hors Forfait"
 
-            if (BDD.insertData(Libelle1, 0, Montant1, Date1, DateSaisie1)) {
+
+            if (BDD.insertData(Libelle1, 0, Montant1, Date1)) {
                 Libelle.setText("");
                 Montant.setText("");
                 Date.setText("");

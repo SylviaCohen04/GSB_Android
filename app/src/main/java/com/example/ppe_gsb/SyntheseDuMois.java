@@ -25,7 +25,7 @@ public class SyntheseDuMois extends AppCompatActivity {
         BDD = new SQLHelper(this);
         BDD.open();
 
-        //Générer le ListView a partir de SQLite Database
+        //Génére le ListView a partir de SQLite Database
         displayListView();
     }
 
@@ -45,7 +45,7 @@ public class SyntheseDuMois extends AppCompatActivity {
         };
 
 
-        // Les éléments defnis dans le XML auxquels les données sont liées
+        // Les éléments définis dans le XML auxquels les données sont liées
         int[] to = new int[]{
                 R.id.id,
                 R.id.libelle,
@@ -62,7 +62,7 @@ public class SyntheseDuMois extends AppCompatActivity {
                 to,
                 0);
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listeFF);
         // Attribuer l’adapter au ListView
         listView.setAdapter(dataAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,41 +71,36 @@ public class SyntheseDuMois extends AppCompatActivity {
             public void onItemClick(AdapterView<?> listView, View view,
                                     int position, long id) {
                 // On obtient le curseur, positionne sur la ligne correspondante dans le jeu de résultats
-                Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+                Cursor curseur = (Cursor) listView.getItemAtPosition(position);
 
                 // des qu'on clique (avec le curseur) sur un element de la liste, un message
-                // s'affiche avec la capitale
+                // s'affiche
                 String monId =
-                        cursor.getString(cursor.getColumnIndexOrThrow("ID"));
+                        curseur.getString(curseur.getColumnIndexOrThrow("ID"));//curseur.getString(curseur.getColumnIndexOrThrow("ID"));
                 Toast.makeText(getApplicationContext(),
                         monId, Toast.LENGTH_SHORT).show();
                 Integer monId1 = Integer.parseInt(monId.toString());
-                BDD.deleteData (monId1);
+                BDD.deleteData(monId1);
             }
         });
-
-
-        // On obtient le curseur, positionne sur la ligne correspondante dans le jeu de résultats
-
-
-        // des qu'on clique (avec le curseur) sur un element de la liste, un message
-        // s'affiche avec la capitale
-        // String typefrais =
-        //        pointeur.getString(pointeur.getColumnIndexOrThrow("typeFrais"));
-        //  Toast.makeText(getApplicationContext(),
-        //      typefrais, Toast.LENGTH_SHORT).show();
-
-
-
     }
 
     /*
     Permet de fermer cette fenetre et de retourner au menu
-    @param View
+    @param view
      */
-    public void clic_btnRS(View view) {
+    public void clic_btnRetourS(View view) {
         finish();
-
     }
 
+        /**
+         * Affiche un message après la suppression d'un frais
+         *
+         * @param view
+         *
+         * @return null
+         */
+        public void doDeleteOnClick(View view) {
+            Toast.makeText(view.getContext(),"Vous avez cliqué sur le bouton supprimer pour l'id " + ((String) view.getTag()), Toast.LENGTH_SHORT).show();
+        }
     }

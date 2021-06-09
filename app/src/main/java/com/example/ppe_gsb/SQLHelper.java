@@ -7,10 +7,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import static android.content.ContentValues.TAG;
 
-public class SQLHelper  extends SQLiteOpenHelper {
+public class SQLHelper extends SQLiteOpenHelper {
 
     //Proprietes
     private static final String DB_NAME = "GSB.db";
@@ -26,14 +29,14 @@ public class SQLHelper  extends SQLiteOpenHelper {
     public static final String Quantite = "Quantite";
     public static final String Montant = "Montant";
     public static final String DateFrais = "DateFrais";
-    public static final String DateSaisie= "DateSaisie";
+    public static final String DateSaisie = "DateSaisie";
 
     private SQLHelper maBDDHelper;
     private SQLiteDatabase maBDD;
     private final Context monContexte;
 
     /*
-     *Constructeur
+     * Constructeur
      * @param Context context
      */
     public SQLHelper(Context context) {
@@ -56,7 +59,7 @@ public class SQLHelper  extends SQLiteOpenHelper {
     }
 
     /*
-     * methode onUpgrade()
+     *
      * @param SQLiteDatabase sqLiteDatabase
      */
     //si la version de la bdd évolue, cette méthode permettra de mettre à jour
@@ -72,34 +75,21 @@ public class SQLHelper  extends SQLiteOpenHelper {
      * @param Libelle1
      * @param Montant1
      * @param DateFrais1
-     * @param DateSaisie1
      * @return
+     *
+     * String typeFrais1, Integer quantite1, String date1, double montant1, String libelle1)
      */
-    public boolean insertData(String Libelle1, Integer Quantite1,  Double Montant1,
-                              String DateFrais1, String DateSaisie1) {
+    public boolean insertData(String Libelle1, Integer Quantite1, Double Montant1,
+                              String DateFrais1) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Libelle", Libelle1);
         contentValues.put("Quantite", Quantite1);
         contentValues.put("Montant", Montant1);
         contentValues.put("DateFrais", DateFrais1);
-        contentValues.put("DateSaisie", DateSaisie1);
-        //return maBDD.insert(SQLITE_TABLE, null, contentValues);
 
         long result = db.insert(DB_TABLE, null, contentValues);
         return result != -1;
-
-    }
-
-    /*
-        Le curseur c au lieu d'une req sql
-     */
-    public Cursor viewData() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "select * from " + DB_TABLE;
-        Cursor pointeur = db.rawQuery(query, null);
-        return pointeur;
-
     }
 
     /*
@@ -114,11 +104,6 @@ public class SQLHelper  extends SQLiteOpenHelper {
         return result != -1;
 
     }
-
-    /*
-     ***********
-     ************ajout du 23 01 2021
-     */
 
     public SQLHelper open() throws SQLException {
         maBDDHelper = new SQLHelper(monContexte);
@@ -137,8 +122,8 @@ public class SQLHelper  extends SQLiteOpenHelper {
 
     public Cursor fetchAllFrais() {
 
-        Cursor curseur = maBDD.query(DB_TABLE, new String[]  {"rowid _id", ID, Libelle,
-                        Quantite, Montant, DateFrais, DateSaisie },
+        Cursor curseur = maBDD.query(DB_TABLE, new String[]{"rowid _id", ID, Libelle,
+                        Quantite, Montant, DateFrais, DateSaisie},
                 null, null, null, null, null, null);
 
         if (curseur != null) {
@@ -146,7 +131,6 @@ public class SQLHelper  extends SQLiteOpenHelper {
         }
         return curseur;
     }
-
 
 }
 

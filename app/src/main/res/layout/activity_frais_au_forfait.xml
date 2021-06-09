@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:onClick="ShowCal"
     android:orientation="vertical"
     tools:context=".FraisAuForfait">
 
@@ -35,7 +36,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,13 +53,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/type"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="fill"
-                    android:text="Type:" />
+                    android:text="Type" />
 
+                <Spinner
+                    android:id="@+id/typeFrais"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:entries="@array/TypeForfait" />
 
             </LinearLayout>
 
@@ -100,13 +107,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <ImageButton
-                    android:id="@+id/imgbtn"
+                <ImageView
+                    android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-
-                    />
+                    android:onClick="ShowCal"
+                    app:srcCompat="@drawable/calendrier" />
 
             </LinearLayout>
 
@@ -122,14 +129,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:onClick="ajouterDonnees"
                     android:text="Ajouter" />
 
                 <Button
-                    android:id="@+id/btnRFF"
+                    android:id="@+id/btnRetour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:onClick="clic_retour"
                     android:text="Retour" />
             </LinearLayout>
         </LinearLayout>

@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="clic_bouton"
                     android:text="FRAIS AU FORFAIT"
-                    android:textColorHighlight="#912F2F" />
+                    android:textColorHighlight="#FF5722" />
 
                 <Button
                     android:id="@+id/btnFHF"
