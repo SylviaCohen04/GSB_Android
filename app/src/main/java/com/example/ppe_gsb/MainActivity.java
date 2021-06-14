@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), SyntheseDuMois.class);
             startActivity(intent);
         }
+
+        if (view.getId() == R.id.Visi) {
+            Intent intent = new Intent(getApplicationContext(), InscriptionVisiteur.class);
+            startActivity(intent);
+        }
     }
 
     /**

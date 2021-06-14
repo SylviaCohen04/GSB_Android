@@ -1,7 +1,5 @@
 package com.example.ppe_gsb;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -42,7 +40,7 @@ public class FraisAuForfait extends MainActivity{
 
         BDD = new SQLHelper(this);
         ListeFrais = findViewById(R.id.typeFrais);
-        Quantite = findViewById(R.id.quantite);
+        Quantite = findViewById(R.id.nom1);
         Date = findViewById(R.id.dateFrais);
         //ajouter date saisie
     }

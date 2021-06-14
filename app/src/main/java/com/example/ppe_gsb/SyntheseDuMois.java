@@ -44,12 +44,11 @@ public class SyntheseDuMois extends AppCompatActivity {
                 SQLHelper.DateSaisie
         };
 
-
         // Les éléments définis dans le XML auxquels les données sont liées
         int[] to = new int[]{
                 R.id.id,
                 R.id.libelle,
-                R.id.quantite,
+                R.id.nom1,
                 R.id.montant,
                 R.id.date,
                 R.id.dateSaisie

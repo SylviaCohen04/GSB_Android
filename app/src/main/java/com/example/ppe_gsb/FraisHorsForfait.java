@@ -14,6 +14,7 @@ import android.os.Bundle;
 
 public class FraisHorsForfait extends MainActivity {
 
+    TextView aaa;
     SQLHelper BDD;
     TextView Date;
     EditText Libelle;

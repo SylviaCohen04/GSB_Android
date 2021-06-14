@@ -19,6 +19,7 @@ public class SQLHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "GSB.db";
     private static final String DB_TABLE = "Users_Tablefrais";//nom de la table, necessaire pour
     // l'appeler dans les methodes
+    private static final String DB_TABLE2 = "Visiteur";
     private static final String CREATE_TABLE = "CREATE TABLE Users_Tablefrais (ID INTEGER PRIMARY " +
             "KEY AUTOINCREMENT, Libelle TEXT, Quantite Integer, Montant Float, " +
             "DateFrais TEXT, DateSaisie DATETIME DEFAULT CURRENT_TIMESTAMP)";
@@ -30,6 +31,13 @@ public class SQLHelper extends SQLiteOpenHelper {
     public static final String Montant = "Montant";
     public static final String DateFrais = "DateFrais";
     public static final String DateSaisie = "DateSaisie";
+
+    //ajout Tamar
+    public static final String ID1 = "ID";
+    public static final String Nom = "nom";
+    public static final String Prenom = "prenom";
+    public static final String Login = "login";
+
 
     private SQLHelper maBDDHelper;
     private SQLiteDatabase maBDD;
@@ -75,9 +83,7 @@ public class SQLHelper extends SQLiteOpenHelper {
      * @param Libelle1
      * @param Montant1
      * @param DateFrais1
-     * @return
-     *
-     * String typeFrais1, Integer quantite1, String date1, double montant1, String libelle1)
+     * @return String typeFrais1, Integer quantite1, String date1, double montant1, String libelle1)
      */
     public boolean insertData(String Libelle1, Integer Quantite1, Double Montant1,
                               String DateFrais1) {
@@ -133,4 +139,5 @@ public class SQLHelper extends SQLiteOpenHelper {
     }
 
 }
+
 
